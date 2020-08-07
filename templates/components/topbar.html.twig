@@ -12,18 +12,22 @@
         </ul>
     </div>
 
-    <div class="top_bar__cta">
-        <ul>
-            <li>
-                <a href="{{ path('app_login') }}">
-                    Connexion
-                </a>
-            </li>
-            <li>
-                <a href="{{ path('app_register') }}">
-                    Inscription
-                </a>
-            </li>
-        </ul>
+    <div class="top_bar__actions">
+    {% if not is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+    <ul>
+        <li>
+            <a href="{{ path('app_login') }}">
+                Connexion
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('app_register') }}">
+                Inscription
+            </a>
+        </li>
+    </ul>
+    {% else %}
+        <a href="{{ path('app_logout') }}">Déconnexion</a>
+    {% endif %}
     </div>
 </nav>
