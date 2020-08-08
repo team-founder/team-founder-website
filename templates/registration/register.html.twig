@@ -1,21 +1,47 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Créer un compte{% endblock %}
 
 {% block body %}
-    {% for flashError in app.flashes('verify_email_error') %}
-        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
-    {% endfor %}
+    <div class="auth-container">
+        {{ form_start(registrationForm, {'attr': {'class': 'auth-form'}}) }}
+        <h1 class="h1">Inscrivez-vous dès aujourd'hui !</h1>
 
-    <h1>Inscrivez-vous dès aujourd'hui</h1>
+        {% for flashError in app.flashes('verify_email_error') %}
+            <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+        {% endfor %}
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+        <div class="my-custom-class-for-errors">
+            {{ form_errors(registrationForm) }}
+        </div>
 
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+        <div class="form-group">
+            <label>
+                {{ form_widget(registrationForm.email, {'attr': {'placeholder': 'Adresse email'}}) }}
+            </label>
+
+            <label>
+                {{ form_widget(registrationForm.plainPassword, {'attr': {'placeholder': 'Adresse email'}}) }}
+            </label>
+            <div class="form-check">
+                <label>
+                    {{ form_widget(registrationForm.agreeTerms) }} Accepter les conditions d'utilisation
+                </label>
+            </div>
+
+        </div>
+
+        <div class="auth-actions">
+            <button type="submit" class="btn-primary">Créer un compte</button>
+
+            <a href="{{ path('app_login') }}">
+                Connexion
+            </a>
+        </div>
+        {{ form_end(registrationForm) }}
+
+        <div class="auth-drawing">
+            <img src="{{ asset('img/svgs/auth.svg') }}" alt="4 personnes qui trinquent" />
+        </div>
+    </div>
 {% endblock %}

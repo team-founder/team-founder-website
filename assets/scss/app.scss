@@ -1,0 +1,48 @@
+:root {
+  // Colors
+  // ==================
+  --color-primary: #4d3df7;
+
+  --color-secondary-light: #8EEDC7;
+  --color-secondary-normal: #199473;
+  --color-secondary-dark: #0C6B58;
+
+  --color-text-light: #829AB1;
+  --color-text-normal: #334E68;
+  --color-text-dark: #243B53;
+  --color-text-hover: var(--color-primary);
+
+  --color-call-to-action: var(--color-secondary-normal);
+  --color-call-to-action-alternative: var(--color-primary);
+
+  --color-border: var(--color-text-light);
+
+  // Layout
+  // ==================
+  --space: 8px;
+  --container-padding: 24px;
+  --container-width: calc(100vw - var(--container-padding) * 2);
+  --topbar-height: 64px;
+}
+
+body {
+  background: #F5F5F5;
+}
+
+// Tools
+// ==================
+@import 'tools/reset';
+@import 'tools/functions';
+@import 'tools/mixins';
+@import 'tools/typography';
+@import 'tools/layout';
+
+// Modules
+// ==================
+@import 'modules/buttons';
+@import 'modules/form';
+@import 'modules/nav';
+
+// Pages
+// ==================
+@import 'pages/auth';

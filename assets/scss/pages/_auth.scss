@@ -1,0 +1,27 @@
+.auth-container {
+  @extend %container;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: calc(100vh - var(--topbar-height));
+}
+
+.auth-form {
+  max-width: 400px;
+  width: 100%;
+
+  input {
+    background: #FFFFFF !important;
+  }
+}
+
+.auth-actions {
+  font-size: 0.9em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.auth-drawing {
+  flex-grow: 0;
+}

@@ -1,0 +1,51 @@
+@import 'functions';
+
+// Typography
+// ==================
+@mixin font-face($name, $path, $weight: null, $style: null, $extensions: eot woff2 woff ttf svg) {
+  $src: null;
+
+  $extension_modifications: (
+          eot: '?',
+          svg: '#' + str-replace($name, ' ', '_')
+  );
+
+  $formats: (
+          otf: 'opentype',
+          ttf: 'truetype'
+  );
+
+  @each $ext in $extensions {
+    $extension_modifications: if(map-has-key($extension_modifications, $ext), $ext + map-get($extension_modifications, $ext), $ext);
+    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+    $src: append($src, url(quote($path + '.' + $extension_modifications)) format(quote($format)), comma);
+  }
+
+  @if length($weight) == 1 {
+    @font-face {
+      font-family: quote($name);
+      font-style: $style;
+      font-weight: $weight;
+      src: $src;
+    }
+  } @else {
+    $weights: $weight;
+    @each $weight in $weights {
+      $suffix: map-get(
+                      (
+                              100: Thin,
+                              200: ExtraLight,
+                              300: Light,
+                              400: Regular,
+                              500: Medium,
+                              600: SemiBold,
+                              700: Bold,
+                              800: ExtraBold,
+                              900: Black
+                      ),
+                      $weight
+      );
+      @include font-face($name, $path + '-' + $suffix, $weight, $style, $extensions);
+    }
+  }
+}

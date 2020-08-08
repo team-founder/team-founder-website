@@ -1,0 +1,25 @@
+%btn {
+  padding: space(1) space(2);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: $font-alternative;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+
+.btn-primary {
+  @extend %btn;
+  background: var(--color-call-to-action-alternative);
+}
+
+.btn-primary-outlined {
+  @extend %btn;
+  border: 1px solid var(--color-call-to-action-alternative);
+  color: var(--color-call-to-action-alternative);
+}
+
+.btn-secondary {
+  @extend %btn;
+  background: var(--color-secondary-normal);
+}

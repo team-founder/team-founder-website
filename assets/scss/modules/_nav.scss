@@ -1,0 +1,57 @@
+// Top bar
+// ==================
+.top_bar {
+  @extend %container-full;
+
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  align-items: center;
+  height: var(--topbar-height);
+
+  font-weight: 600;
+  font-family: $font-alternative;
+
+  &__brand {
+    a {
+      color: var(--color-text-dark);
+      font-weight: bold;
+      font-family: $font;
+      font-size: 18px;
+    }
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__links {
+    ul {
+      display: flex;
+      justify-content: space-around;
+      margin-right: space(10);
+
+      li {
+        margin: 0 space(2);
+        color: var(--color-text-normal);
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  &__actions {
+    ul {
+      display: flex;
+      justify-content: space-around;
+
+      li {
+        margin-left: space(3);
+        color: var(--color-text-normal);
+      }
+    }
+  }
+}

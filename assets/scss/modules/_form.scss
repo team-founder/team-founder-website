@@ -1,0 +1,61 @@
+// Vertical form
+// ==================
+.form-group {
+  margin: space(4) 0;
+}
+
+// Text fields
+// ==================
+.form-group input:not([type='checkbox']),
+.form-group textarea,
+.choices__inner,
+.form-group select,
+%input {
+  border: 1px solid var(--color-border);
+  background: var(--background);
+  border-radius: 3px;
+  color: var(--color);
+  padding: space(1.5) space(1);
+  display: block;
+  width: 100%;
+  outline: none;
+  min-height: 40px;
+}
+.form-group textarea {
+  min-height: 150px;
+}
+.form-group label {
+  display: block;
+  margin-bottom: space(3);
+}
+
+// Vertical form
+// ==================
+.form-vertical {
+  display: flex;
+  flex-direction: row;
+}
+
+// Checkboxes
+// ==================
+label.form-check,.form-check {
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  & > label, & {
+    margin-bottom: 0;
+  }
+}
+.form-check input {
+  width: auto;
+  margin: 0 space(1) 0 0;
+}
+.form-check label {
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}

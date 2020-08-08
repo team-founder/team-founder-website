@@ -1,0 +1,19 @@
+// Variables
+// =================
+$font: 'Montserrat', sans-serif;
+$font-alternative: 'OpenSans', sans-serif;
+
+// Font face
+// ==================
+@include font-face('Montserrat', '/fonts/Montserrat/Montserrat', 100 200 300 400 500 600 700 800 900, null, ttf);
+@include font-face('OpenSans', '/fonts/OpenSans/OpenSans', 300 400 500 600 700 800, null, ttf);
+
+// Headings
+// ==================
+%h1,
+.h1 {
+  font-family: $font;
+  font-weight: bold;
+  font-size: 1.5em;
+  color: var(--color-text-dark);
+}

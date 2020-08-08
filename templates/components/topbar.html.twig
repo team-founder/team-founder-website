@@ -1,33 +1,40 @@
 <nav class="top_bar">
     <div class="top_bar__brand">
-        Team-Founder
+        <a href="{{ path('app_home') }}">Team-Founder</a>
+    </div>
+    <div class="top_bar__right">
+        <div class="top_bar__links">
+            <ul>
+                <li><a href="#">Qui sommes-nous ?</a></li>
+                <li><a href="#">Notre équipe</a></li>
+                <li><a href="#">Recrutement</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="top_bar__actions">
+            <ul>
+                {% if not is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                    <li>
+                        <a href="{{ path('app_login') }}">
+                            Connexion
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ path('app_register') }}" class="btn-secondary">
+                            Créer un compte
+                        </a>
+                    </li>
+                {% else %}
+                    <li>
+                        <a href="#">{{ app.user.username }}</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('app_logout') }}" class="btn-primary">Déconnexion</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
     </div>
 
-    <div class="top_bar__links">
-        <ul>
-            <li><a href="#">Qui sommes-nous ?</a></li>
-            <li><a href="#">Notre équipe</a></li>
-            <li><a href="#">Recrutement</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </div>
-
-    <div class="top_bar__actions">
-    {% if not is_granted('IS_AUTHENTICATED_REMEMBERED') %}
-    <ul>
-        <li>
-            <a href="{{ path('app_login') }}">
-                Connexion
-            </a>
-        </li>
-        <li>
-            <a href="{{ path('app_register') }}">
-                Inscription
-            </a>
-        </li>
-    </ul>
-    {% else %}
-        <a href="{{ path('app_logout') }}">Déconnexion</a>
-    {% endif %}
-    </div>
 </nav>
