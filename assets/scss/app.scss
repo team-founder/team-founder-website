@@ -25,10 +25,6 @@
   --topbar-height: 64px;
 }
 
-body {
-  background: #F5F5F5;
-}
-
 // Tools
 // ==================
 @import 'tools/reset';
@@ -46,3 +42,8 @@ body {
 // Pages
 // ==================
 @import 'pages/auth';
+
+body {
+  background: #F5F5F5;
+  font-family: $font;
+}

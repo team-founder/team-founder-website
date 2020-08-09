@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Réinitialiser votre mot de passe{% endblock %}
+
+{% block body %}
+
+    <div class="auth-container">
+        {{ form_start(resetForm) }}
+        <h1 class="h1">Réinitialiser votre mot de passe</h1>
+        {{ form_widget(resetForm.plainPassword, {git 'attr': {'placeholder': 'Votre nouveau mot de passe'}}) }}
+        <button class="btn-primary">Choisir ce mot de passe</button>
+        {{ form_end(resetForm) }}
+
+        <div class="auth-drawing">
+            <img src="{{ asset('img/svgs/auth.svg') }}" alt="4 personnes qui trinquent" />
+        </div>
+    </div>
+
+{% endblock %}

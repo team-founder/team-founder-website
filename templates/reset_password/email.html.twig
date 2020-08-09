@@ -1,0 +1,11 @@
+<h1>Team-Founder - Demande de réinitialisation de mot de passe</h1>
+
+<p>
+    Pour réinitialiser votre mot de passe veuillez cliquez
+    <a href="{{ url('app_reset_password', {token: resetToken.token}) }}">ici</a>
+    Ce lien expirera dans {{ tokenLifetime|date('g') }} heure(s)...
+</p>
+
+<p>
+    Santé !
+</p>
