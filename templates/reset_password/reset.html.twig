@@ -7,7 +7,14 @@
     <div class="auth-container">
         {{ form_start(resetForm) }}
         <h1 class="h1">Réinitialiser votre mot de passe</h1>
-        {{ form_widget(resetForm.plainPassword, {git 'attr': {'placeholder': 'Votre nouveau mot de passe'}}) }}
+        <div class="form-group">
+            <label>
+                {{ form_widget(resetForm.plainPassword.first) }}
+            </label>
+            <label>
+                {{ form_widget(resetForm.plainPassword.second) }}
+            </label>
+        </div>
         <button class="btn-primary">Choisir ce mot de passe</button>
         {{ form_end(resetForm) }}
 
