@@ -3,15 +3,12 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>{% block title %}Team Founder!{% endblock %}</title>
+        <title>Team Founder !</title>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet"> 
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"> 
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('soon') }}
-        {% endblock %}
+        {{ encore_entry_link_tags('soon') }}
     </head>
     <body>
-        {% block body %}
         <div class="fullscreen">
             <div class="fullscreen__header">
                 <a href="{{ path('app_home') }}" title="Page d'accueil de Team-Founder">
@@ -32,22 +29,11 @@
                     <input type="submit" class="btn" value="Notifiez-moi !" />
                 {{ form_end(form) }}
 
-                {% for message in app.flashes('errors') %}
-                    <p class="form_flash">{{ message|raw }}</p>
+                {% for label, messages in app.flashes %}
+                    {% for message in messages %}
+                        <p class="form_flash">{{ message|raw }}</p>
+                    {% endfor %}
                 {% endfor %}
-
-                {% for message in app.flashes('success') %}
-                    <p class="form_flash">{{ message|raw }}</p>
-                {% endfor %}
-                {#
-                <form action="{{ path('soon_register') }}" method="post" class="subscription_form">
-                    <label>
-                        <input id="emailInput" name="email" type="email" placeholder="Entre ton adresse mail" />
-                    </label>
-
-                    <input type="submit" value="Me tenir informer !" class="btn" />
-                </form>
-                #}
 
                 <p class="discord">
                     <a href="https://discord.gg/r3nPzy2">Venez discuter avec nous sur Discord &rarr;</a>
@@ -56,6 +42,5 @@
 
             <div class="fullscreen__footer"></div>
         </div>
-        {% endblock %}
     </body>
 </html>
