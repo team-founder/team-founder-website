@@ -34,7 +34,7 @@ class ComingSoonSubscribeController extends AbstractController
     {
         $subscribeForm = $this->createForm(ComingSoonSubscribeType::class);
         $subscribeForm->handleRequest($request);
-        dump($subscribeForm->isSubmitted());
+
         if ($subscribeForm->isSubmitted())
         {
             $errors = $validator->validate($subscribeForm);
@@ -49,7 +49,7 @@ class ComingSoonSubscribeController extends AbstractController
             {
                 foreach ($errors as $error)
                 {
-                    $this->addFlash('errors', $error->getMessage() . '&#128577;');
+                    $this->addFlash('errors', $error->getMessage() . ' &#128577;');
                 }
             }
             return $this->redirectToRoute('coming_soon');
