@@ -39,7 +39,7 @@ class ComingSoonSubscribeController extends AbstractController
         {
             $errors = $validator->validate($subscribeForm);
 
-            if($subscribeForm->isValid())
+            if ($subscribeForm->isValid())
             {
                 $this->addFlash('success', 'Vous serez bien informé par mail &#x1F642; !');
                 $em->persist($subscribeForm->getData());
@@ -52,6 +52,7 @@ class ComingSoonSubscribeController extends AbstractController
                     $this->addFlash('errors', $error->getMessage() . ' &#128577;');
                 }
             }
+
             return $this->redirectToRoute('coming_soon');
         }
 
