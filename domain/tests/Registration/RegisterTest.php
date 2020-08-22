@@ -31,6 +31,16 @@ class RegisterTest extends TestCase
             public function register(User $user): void
             {
             }
+
+            public function isPseudonymAlreadyInUse($pseudonym): bool
+            {
+                return false;
+            }
+
+            public function isEmailAlreadyInUse($email): bool
+            {
+                return false;
+            }
         };
 
         $this->presenter = new class () implements RegistrationPresenterInterface {
@@ -75,10 +85,10 @@ class RegisterTest extends TestCase
 
     public function provideBadRequestData(): Generator
     {
-        yield ["", "email@domain.tld", "plainPassword"];   // Wrong pseudonym: blank
-        yield ["pseudonym", "", "plainPassword"];   // Wrong email: blank
-        yield ["pseudonym", "email@email", "plainPassword"];   // Wrong email: no extension
-        yield ["pseudonym", "email@email.fr", ""];                // Wrong password: blank
-        yield ["pseudonym", "email@email.fr", "short"];           // Wrong password: too short
+        yield ["", "email@domain.tld", "plainPassword"];  // Wrong pseudonym: blank
+        yield ["pseudonym", "", "plainPassword"];  // Wrong email: blank
+        yield ["pseudonym", "email@email", "plainPassword"];  // Wrong email: no extension
+        yield ["pseudonym", "email@email.fr", ""];  // Wrong password: blank
+        yield ["pseudonym", "email@email.fr", "short"];  // Wrong password: too short
     }
 }
