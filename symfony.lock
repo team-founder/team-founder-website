@@ -5,6 +5,18 @@
     "composer/package-versions-deprecated": {
         "version": "1.10.99"
     },
+    "dama/doctrine-test-bundle": {
+        "version": "4.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "4.0",
+            "ref": "56eaa387b5e48ebcc7c95a893b47dfa1ad51449c"
+        },
+        "files": [
+            "config/packages/test/dama_doctrine_test_bundle.yaml"
+        ]
+    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {
@@ -85,7 +97,7 @@
         "version": "1.1.1"
     },
     "egulias/email-validator": {
-        "version": "2.1.18"
+        "version": "2.1.19"
     },
     "laminas/laminas-code": {
         "version": "3.4.1"
@@ -117,6 +129,9 @@
     "php": {
         "version": "7.4"
     },
+    "php-webdriver/webdriver": {
+        "version": "1.8.2"
+    },
     "phpdocumentor/reflection-common": {
         "version": "2.2.0"
     },
@@ -130,7 +145,7 @@
         "version": "1.11.1"
     },
     "phpunit/php-code-coverage": {
-        "version": "9.1.2"
+        "version": "9.1.4"
     },
     "phpunit/php-file-iterator": {
         "version": "3.0.4"
@@ -150,7 +165,7 @@
             "repo": "github.com/symfony/recipes",
             "branch": "master",
             "version": "4.7",
-            "ref": "00fdb38c318774cd39f475a753028a5e8d25d47c"
+            "ref": "477e1387616f39505ba79715f43f124836020d71"
         },
         "files": [
             ".env.test",
@@ -441,6 +456,9 @@
     "symfony/orm-pack": {
         "version": "v2.0.0"
     },
+    "symfony/panther": {
+        "version": "v0.7.1"
+    },
     "symfony/phpunit-bridge": {
         "version": "4.3",
         "recipe": {
@@ -460,10 +478,10 @@
         "version": "v1.18.0"
     },
     "symfony/polyfill-intl-icu": {
-        "version": "v1.18.0"
+        "version": "v1.18.1"
     },
     "symfony/polyfill-intl-idn": {
-        "version": "v1.18.0"
+        "version": "v1.18.1"
     },
     "symfony/polyfill-intl-normalizer": {
         "version": "v1.18.0"
