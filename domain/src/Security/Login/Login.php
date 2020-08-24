@@ -29,10 +29,8 @@ class Login
     {
         $user = $this->gateway->getUserByEmail($request->getEmail());
 
-        if ($user && !password_verify($request->getPlainPassword(), $user->getPassword())) {
+        if (!password_verify($request->getPlainPassword(), $user->getPassword())) {
             throw new InvalidCredentialsException();
-        } elseif (!$user) {
-            throw new UserNotFoundException();
         }
 
         $response = new LoginResponse($user);

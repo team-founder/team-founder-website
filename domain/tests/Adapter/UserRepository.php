@@ -3,6 +3,7 @@
 namespace TFounder\Domain\Tests\Adapter;
 
 use TFounder\Domain\Security\Entity\User;
+use TFounder\Domain\Security\Exception\UserNotFoundException;
 use TFounder\Domain\Security\Gateway\UserGateway;
 
 class UserRepository implements UserGateway
@@ -21,11 +22,16 @@ class UserRepository implements UserGateway
         return false;
     }
 
-    public function getUserByEmail(string $email)
+    /**
+     * @param string $email
+     * @return User
+     * @throws UserNotFoundException
+     */
+    public function getUserByEmail(string $email): User
     {
         if ($email == "good@domain.tld") {
             return new User("Pseudonym", $email, "plainPassword");
         }
-        return null;
+        throw new UserNotFoundException();
     }
 }
