@@ -39,4 +39,8 @@ class UserRepository extends ServiceEntityRepository implements UserGateway
     {
         return in_array($email, ['used@email.com']);
     }
+
+    public function getUserByEmail(string $email)
+    {
+    }
 }

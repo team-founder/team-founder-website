@@ -11,4 +11,6 @@ interface UserGateway
     public function isPseudonymAlreadyInUse($pseudonym): bool;
 
     public function isEmailAlreadyInUse($email): bool;
+
+    public function getUserByEmail(string $email);
 }

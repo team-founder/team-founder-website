@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Infrastructure\Test\Repository;
+namespace TFounder\Domain\Tests\Adapter;
 
 use TFounder\Domain\Security\Entity\User;
 use TFounder\Domain\Security\Gateway\UserGateway;
@@ -13,16 +13,19 @@ class UserRepository implements UserGateway
 
     public function isPseudonymAlreadyInUse($pseudonym): bool
     {
-        return in_array($pseudonym, ['used_pseudo']);
+        return false;
     }
 
     public function isEmailAlreadyInUse($email): bool
     {
-        return in_array($email, ['used@email.com']);
+        return false;
     }
 
     public function getUserByEmail(string $email)
     {
-        // TODO: Implement getUserByEmail() method.
+        if ($email == "good@domain.tld") {
+            return new User("Pseudonym", $email, "plainPassword");
+        }
+        return null;
     }
 }

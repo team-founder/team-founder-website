@@ -1,16 +1,16 @@
 <?php
 
-namespace TFounder\Domain\Tests\Registration;
+namespace TFounder\Domain\Tests\Security;
 
 use Assert\AssertionFailedException;
 use Generator;
 use PHPUnit\Framework\TestCase;
 use TFounder\Domain\Security\Entity\User;
-use TFounder\Domain\Security\Gateway\UserGateway;
 use TFounder\Domain\Security\Registration\Registration;
 use TFounder\Domain\Security\Registration\RegistrationPresenterInterface;
 use TFounder\Domain\Security\Registration\RegistrationRequest;
 use TFounder\Domain\Security\Registration\RegistrationResponse;
+use TFounder\Domain\Tests\Adapter\UserRepository;
 
 /**
  * Class RegisterTest
@@ -26,22 +26,7 @@ class RegisterTest extends TestCase
     {
         parent::setUp();
 
-        $gateway = new class () implements UserGateway {
-
-            public function register(User $user): void
-            {
-            }
-
-            public function isPseudonymAlreadyInUse($pseudonym): bool
-            {
-                return false;
-            }
-
-            public function isEmailAlreadyInUse($email): bool
-            {
-                return false;
-            }
-        };
+        $gateway = new UserRepository();
 
         $this->presenter = new class () implements RegistrationPresenterInterface {
             public RegistrationResponse $response;
