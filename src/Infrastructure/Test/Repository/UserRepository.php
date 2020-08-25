@@ -20,4 +20,9 @@ class UserRepository implements UserGateway
     {
         return in_array($email, ['used@email.com']);
     }
+
+    public function getUserByEmail(string $email)
+    {
+        // TODO: Implement getUserByEmail() method.
+    }
 }
