@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Connexion</h1>
+    {{ vm.error }}
+    {{ vm.lastUsername }}
+    <form method="post">
+        <label for="usernameLoginInput">Email :</label>
+        <input type="email" id="usernameLoginInput" name="email"/>
+
+        <label for="passwordLoginInput">Mot de passe :</label>
+        <input type="password" id="passwordLoginInput" name="password"/>
+
+        <button>Se connecter</button>
+    </form>
+{% endblock %}
