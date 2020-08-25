@@ -30,7 +30,11 @@ class UserRepository implements UserGateway
     public function getUserByEmail(string $email): User
     {
         if ($email == "good@domain.tld") {
-            return new User("Pseudonym", $email, "plainPassword");
+            return new User(
+                "Pseudonym",
+                $email,
+                password_hash("plainPassword", PASSWORD_ARGON2I)
+            );
         }
         throw new UserNotFoundException();
     }

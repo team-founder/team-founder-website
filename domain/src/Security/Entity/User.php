@@ -14,12 +14,16 @@ class User
     {
         $this->email = $email;
         $this->pseudonym = $pseudonym;
-        $this->password = password_hash($password, PASSWORD_ARGON2I);
+        $this->password = $password;
     }
 
     public static function fromRegistrationRequest(RegistrationRequest $request)
     {
-        return new self($request->getPseudonym(), $request->getEmail(), $request->getPlainPassword());
+        return new self(
+            $request->getPseudonym(),
+            $request->getEmail(),
+            password_hash($request->getPlainPassword(), PASSWORD_ARGON2I)
+        );
     }
 
     public function getPseudonym(): string
